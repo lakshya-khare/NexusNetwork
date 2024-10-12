@@ -1,0 +1,9 @@
+<h1>Blogs</h1>
+<ul>
+  <% blogs.forEach(blog => { %>
+    <li>
+      <h3><%= blog.title %></h3>
+      <p><%= blog.content %></p>
+    </li>
+  <% }) %>
+</ul>
