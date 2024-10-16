@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Video</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the video covers the area without zooming */
+            z-index: -1;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+
+<video id="responsiveVideo" autoplay loop muted>
+    <source id="videoSource" src="" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+<script>
+    function getDeviceType() {
+        const width = window.innerWidth;
+        if (width <= 768) {
+            return 'mobile'; // Phones and small tablets
+        } else if (width <= 1024) {
+            return 'tablet'; // Tablets
+        } else {
+            return 'desktop'; // PCs
+        }
+    }
+
+    function setVideoSource() {
+        const video = document.getElementById('videoSource');
+        const deviceType = getDeviceType();
+
+        switch (deviceType) {
+            case 'mobile':
+                video.src = 'Assets/phone.mp4'; // Mobile video path
+                break;
+            case 'tablet':
+                video.src = 'Assets/tabs.mp4'; // Tablet video path
+                break;
+            case 'desktop':
+                video.src = 'Assets/desktop.mp4'; // Desktop video path
+                break;
+        }
+
+        const videoElement = document.getElementById('responsiveVideo');
+        videoElement.load();
+    }
+
+    // Set the initial video source
+    setVideoSource();
+
+    // Update the video source on window resize
+    window.addEventListener('resize', setVideoSource);
+</script>
+
+</body>
+</html>
