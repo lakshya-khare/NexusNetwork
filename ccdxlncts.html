@@ -82,25 +82,11 @@
 
     <a class="btn" href="https://gdg.community.dev/events/details/google-gdg-cloud-bhopal-presents-cloud-community-day-bhopal-2025/cohost-gdg-on-campus-lakshmi-narain-college-of-technology-and-science-bhopal-india" target="_blank">🎟️ Get Tickets</a>
 
-    <div class="view-count" id="view-counter">
-      Loading ticket count...
+    <div class="view-count">
+      limited tickets only!!!
     </div>
      <p>POWERED BY <strong>NEXUS NETWORK INDIA</strong></p>
   </div>
 
-  <!-- CountAPI Script -->
-  <script>
-    fetch('https://api.countapi.xyz/hit/gdglncts/ccd2025')
-      .then(response => response.json())
-      .then(data => {
-        const count = data.value;
-        document.getElementById('view-counter').innerText =
-          `${count} people already bought tickets from GDG LNCTS family`;
-      })
-      .catch(() => {
-        document.getElementById('view-counter').innerText =
-          "Couldn't load ticket count";
-      });
-  </script>
 </body>
 </html>
